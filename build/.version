@@ -1,0 +1,22 @@
+INFO [12/18/21 15:54:01:14] Working directory: C:\GitHub\see#\build
+INFO [12/18/21 15:54:01:15] Project root is: C:\GitHub\see#\
+INFO [12/18/21 15:54:01:15] DotGit directory is: C:\GitHub\see#\.git
+INFO [12/18/21 15:54:01:16] Begin: Loading version variables from disk cache
+  INFO [12/18/21 15:54:01:16] Cache file C:\GitHub\see#\.git\gitversion_cache\4A211B826899758BF189215916E865A4B0CDC5FA.yml not found.
+  INFO [12/18/21 15:54:01:16] End: Loading version variables from disk cache (Took: 0.36ms)
+  INFO [12/18/21 15:54:01:17] Using latest commit on specified branch
+  INFO [12/18/21 15:54:01:18] Running against branch: main (-)
+  INFO [12/18/21 15:54:01:19] Begin: Calculating base versions
+  INFO [12/18/21 15:54:01:19] End: Calculating base versions (Took: 1.02ms)
+  ERROR [12/18/21 15:54:01:20] An unexpected error occurred:
+GitVersion.GitVersionException: No commits found on the current branch.
+   at GitVersion.VersionCalculation.FallbackVersionStrategy.GetVersions()+MoveNext() in D:\a\GitVersion\GitVersion\src\GitVersion.Core\VersionCalculation\BaseVersionCalculators\FallbackVersionStrategy.cs:line 20
+   at GitVersion.VersionCalculation.BaseVersionCalculator.GetBaseVersions(IVersionStrategy strategy)+MoveNext() in D:\a\GitVersion\GitVersion\src\GitVersion.Core\VersionCalculation\BaseVersionCalculator.cs:line 88
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at GitVersion.VersionCalculation.BaseVersionCalculator.GetBaseVersion() in D:\a\GitVersion\GitVersion\src\GitVersion.Core\VersionCalculation\BaseVersionCalculator.cs:line 30
+   at GitVersion.VersionCalculation.NextVersionCalculator.FindVersion() in D:\a\GitVersion\GitVersion\src\GitVersion.Core\VersionCalculation\NextVersionCalculator.cs:line 56
+   at GitVersion.GitVersionCalculateTool.CalculateVersionVariables() in D:\a\GitVersion\GitVersion\src\GitVersion.Core\Core\GitVersionCalculateTool.cs:line 51
+   at GitVersion.GitVersionExecutor.RunGitVersionTool(GitVersionOptions gitVersionOptions) in D:\a\GitVersion\GitVersion\src\GitVersion.App\GitVersionExecutor.cs:line 66
+  INFO [12/18/21 15:54:01:20] Attempting to show the current git graph (please include in issue): 
+  INFO [12/18/21 15:54:01:20] Showing max of 100 commits
+  INFO [12/18/21 15:54:01:25] 
