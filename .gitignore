@@ -409,3 +409,4 @@ FodyWeavers.xsd
 
 # Built Visual Studio Code Extensions
 *.vsix
+.nuke/desktop.files.json

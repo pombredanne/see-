@@ -7,9 +7,17 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using Xunit;
+using Xunit.Abstractions;
 
 public class ProgramTests
 {
+    public ProgramTests(Xunit.Abstractions.ITestOutputHelper outputHelper)
+    {
+        OutputHelper = outputHelper;
+    }
+
+    public ITestOutputHelper OutputHelper { get; }
+
     [ Fact ]
     public async Task MainMethod_CannotParse_DoesNotThrow()
     {
@@ -24,6 +32,7 @@ public class ProgramTests
         );
 
         var error = capturedError.ToString();
+        OutputHelper.WriteLine(error);
         Assert.Equal("Unrecognized command or argument 'bonk'" + Environment.NewLine, error);
     }
 
@@ -39,6 +48,7 @@ public class ProgramTests
             }
         );
         var output = capturedOutput.ToString();
+        OutputHelper.WriteLine(output);
 
         Assert.Contains(
             "Starts a REPL (read eval print loop) according to the provided [OPTIONS].",
@@ -62,6 +72,7 @@ public class ProgramTests
         );
 
         var output = capturedOutput.ToString();
+        OutputHelper.WriteLine(output);
         Assert.Contains("C# REPL", output);
         Version version = new(output.Trim("C# REPL-rc-alpha-beta\r\n".ToCharArray()));
         Assert.True(version.Major + version.Minor > 0);

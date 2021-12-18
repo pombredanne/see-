@@ -34,7 +34,7 @@ public class Build : NukeBuild
             }
         );
 
-    [ NotNull ]
+    [NotNull]
     private Target Compile => _ => _
         .DependsOn(Restore)
         .Executes(() =>
@@ -57,6 +57,24 @@ public class Build : NukeBuild
                 }
 
                 DotNetTasks.DotNetBuild(Configurator);
+            }
+        );
+
+    [NotNull]
+    private Target Test => _ => _
+        .DependsOn(Compile)
+        .Executes(() =>
+            {
+                DotNetTestSettings Configurator(DotNetTestSettings s)
+                {
+                    return s.SetProjectFile(Solution)
+                        .SetConfiguration(Configuration)
+                        // .EnableNoBuild()
+                        .EnableNoRestore()
+                        .SetVerbosity(DotNetVerbosity.Normal);
+                }
+
+                DotNetTasks.DotNetTest(Configurator);
             }
         );
 
